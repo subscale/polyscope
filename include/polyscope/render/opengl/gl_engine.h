@@ -134,7 +134,7 @@ public:
 class GLShaderProgram : public ShaderProgram {
 
 public:
-  GLShaderProgram(const std::vector<ShaderStageSpecification>& stages, DrawMode dm, unsigned int nPatchVertices = 0);
+  GLShaderProgram(const std::vector<ShaderStageSpecification>& stages, DrawMode dm);
   ~GLShaderProgram() override;
 
   // === Store data
@@ -195,16 +195,16 @@ protected:
   struct GLShaderUniform {
     std::string name;
     DataType type;
-    bool isSet; // has a value been assigned to this uniform?
-    UniformLocation location;
+    bool isSet;               // has a value been assigned to this uniform?
+    UniformLocation location; // -1 means "no location", usually because it was optimized out
   };
 
   struct GLShaderAttribute {
     std::string name;
     DataType type;
     int arrayCount;
-    long int dataSize; // the size of the data currently stored in this attribute (-1 if nothing)
-    AttributeLocation location;
+    long int dataSize;          // the size of the data currently stored in this attribute (-1 if nothing)
+    AttributeLocation location; // -1 means "no location", usually because it was optimized out
     VertexBufferHandle VBOLoc;
   };
 
@@ -215,7 +215,7 @@ protected:
     bool isSet;
     GLTextureBuffer* textureBuffer;
     std::shared_ptr<GLTextureBuffer> textureBufferOwned; // might be empty, if texture isn't owned
-    TextureLocation location;
+    TextureLocation location;                            // -1 means "no location", usually because it was optimized out
   };
 
   // Lists of attributes and uniforms that need to be set
@@ -242,8 +242,6 @@ private:
   ProgramHandle programHandle = 0;
   AttributeHandle vaoHandle;
   AttributeHandle indexVBO;
-
-  int nPatchVertices;
 };
 
 

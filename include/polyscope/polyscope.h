@@ -1,6 +1,7 @@
 // Copyright 2017-2019, Nicholas Sharp and the Polyscope contributors. http://polyscope.run.
 #pragma once
 
+#include "polyscope/internal.h"
 #include "polyscope/messages.h"
 #include "polyscope/options.h"
 #include "polyscope/screenshot.h"
