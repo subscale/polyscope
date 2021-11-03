@@ -21,5 +21,6 @@ add_subdirectory(imgui)
 
 ## Argparse
 
-## STB stuff
+## Other dependencies
 add_subdirectory(stb)
+add_subdirectory(MarchingCubeCpp)
