@@ -65,6 +65,8 @@ public:
   void centerBoundingBox();
   void rescaleToUnit();
   void resetTransform();
+  glm::mat4 getTransform() const;
+  void setTransform(const glm::mat4& xform);
   void setStructureUniforms(render::ShaderProgram& p);
   bool wantsCullPosition();
 
@@ -83,7 +85,7 @@ public:
   // Options
   Structure* setTransparency(double newVal); // also enables transparency if <1 and transparency is not enabled
   double getTransparency();
-  
+
   Structure* setCullWholeElements(bool newVal);
   bool getCullWholeElements();
 
@@ -93,7 +95,7 @@ public:
 protected:
   // = State
   PersistentValue<bool> enabled;
-  
+
   PersistentValue<glm::mat4> objectTransform;
 
   // 0 for transparent, 1 for opaque, only has effect if engine transparency is set
@@ -101,7 +103,7 @@ protected:
 
   // Widget that wraps the transform
   TransformationGizmo transformGizmo;
-  
+
   PersistentValue<bool> cullWholeElements;
   PersistentValue<std::vector<std::string>> ignoredSlicePlaneNames;
 };

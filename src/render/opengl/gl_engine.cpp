@@ -1755,6 +1755,8 @@ void GLEngine::checkError(bool fatal) { checkGLError(fatal); }
 
 void GLEngine::makeContextCurrent() { glfwMakeContextCurrent(mainWindow); }
 
+void GLEngine::focusWindow() { glfwFocusWindow(mainWindow); }
+
 void GLEngine::showWindow() { glfwShowWindow(mainWindow); }
 
 void GLEngine::hideWindow() {

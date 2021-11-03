@@ -83,6 +83,7 @@ public:
 
   // NOTE if you write via this reference, the value will not _actually_ be cached until destruction or
   // manuallyChanged() is called, rather than immediately (ugly, but seems necessary to use with imgui)...
+  const T& get() const { return value; }
   T& get() { return value; }
   void manuallyChanged() { set(value); }
 

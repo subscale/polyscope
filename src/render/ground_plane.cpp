@@ -212,7 +212,7 @@ void GroundPlane::draw(bool isRedraw) {
 
     if (options::groundPlaneMode == GroundPlaneMode::Tile ||
         options::groundPlaneMode == GroundPlaneMode::TileReflection) {
-      groundPlaneProgram->setUniform("u_center", state::center);
+      groundPlaneProgram->setUniform("u_center", glm::vec3{0, 0, 0});
       groundPlaneProgram->setUniform("u_basisX", baseForward);
       groundPlaneProgram->setUniform("u_basisY", baseRight);
     }

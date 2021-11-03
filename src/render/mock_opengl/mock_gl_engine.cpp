@@ -1205,6 +1205,8 @@ void MockGLEngine::checkError(bool fatal) { checkGLError(fatal); }
 
 void MockGLEngine::makeContextCurrent() {}
 
+void MockGLEngine::focusWindow() {}
+
 void MockGLEngine::showWindow() {}
 
 void MockGLEngine::hideWindow() {}

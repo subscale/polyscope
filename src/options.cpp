@@ -17,6 +17,7 @@ bool autocenterStructures = false;
 bool autoscaleStructures = false;
 bool openImGuiWindowForUserCallback = true;
 bool invokeUserCallbackForNestedShow = false;
+bool showStructuresUi = true;
 
 bool screenshotTransparency = true;
 std::string screenshotExtension = ".png";
@@ -27,8 +28,8 @@ std::string screenshotExtension = ".png";
 bool groundPlaneEnabled = true;
 GroundPlaneMode groundPlaneMode = GroundPlaneMode::TileReflection;
 ScaledValue<float> groundPlaneHeightFactor = 0;
-int shadowBlurIters = 2; 
-float shadowDarkness = 0.25; 
+int shadowBlurIters = 2;
+float shadowDarkness = 0.25;
 
 // Rendering options
 

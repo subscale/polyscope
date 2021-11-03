@@ -103,7 +103,7 @@ void Structure::buildUI() {
 
         ImGui::EndMenu();
       }
-      
+
       if (ImGui::BeginMenu("Slice plane options")) {
         if (ImGui::MenuItem("cull whole elements", NULL, getCullWholeElements()))
           setCullWholeElements(!getCullWholeElements());
@@ -168,6 +168,14 @@ void Structure::rescaleToUnit() {
   glm::mat4x4 newTrans = glm::scale(glm::mat4x4(1.0), glm::vec3{s, s, s});
   objectTransform = newTrans * objectTransform.get();
   updateStructureExtents();
+}
+
+glm::mat4 Structure::getTransform() const { return objectTransform.get(); }
+
+void Structure::setTransform(const glm::mat4& xform) {
+  objectTransform = xform;
+  updateStructureExtents();
+  requestRedraw();
 }
 
 glm::mat4 Structure::getModelView() { return view::getCameraViewMatrix() * objectTransform.get(); }

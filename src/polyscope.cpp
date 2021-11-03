@@ -155,6 +155,7 @@ void pushContext(std::function<void()> callbackFunction, bool drawDefaultUI) {
 
   // Make sure the window is visible
   render::engine->showWindow();
+  render::engine->focusWindow();
 
   // Re-enter main loop until the context has been popped
   size_t currentContextStackSize = contextStack.size();
@@ -634,7 +635,9 @@ void draw(bool withUI) {
       buildUserGuiAndInvokeCallback();
 
       buildPolyscopeGui();
-      buildStructureGui();
+      if (options::showStructuresUi) {
+        buildStructureGui();
+      }
       buildPickGui();
 
       for (Widget* w : state::widgets) {
@@ -849,6 +852,7 @@ void removeStructure(std::string type, std::string name, bool errorIfAbsent) {
   sMap.erase(s->name);
   delete s;
   updateStructureExtents();
+  requestRedraw();
   return;
 }
 

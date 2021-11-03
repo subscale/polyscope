@@ -68,7 +68,7 @@ public:
 
   void setFilterMode(FilterMode newMode) override;
   void* getNativeHandle() override;
-  
+
   std::vector<float> getDataScalar() override;
   std::vector<glm::vec2> getDataVector2() override;
   std::vector<glm::vec3> getDataVector3() override;
@@ -267,6 +267,7 @@ public:
 
   // === Windowing and framework things
   void makeContextCurrent() override;
+  void focusWindow() override;
   void showWindow() override;
   void hideWindow() override;
   void updateWindowSize(bool force = false) override;
@@ -314,7 +315,7 @@ public:
 
   // Transparency
   virtual void applyTransparencySettings() override;
-  
+
   virtual void setFrontFaceCCW(bool newVal) override;
 
 protected:
@@ -329,10 +330,9 @@ protected:
   std::unordered_map<std::string, std::pair<std::vector<ShaderStageSpecification>, DrawMode>> registeredShaderPrograms;
   std::unordered_map<std::string, ShaderReplacementRule> registeredShaderRules;
   void populateDefaultShadersAndRules();
-  
+
   std::shared_ptr<ShaderProgram> generateShaderProgram(const std::vector<ShaderStageSpecification>& stages,
                                                        DrawMode dm) override;
-
 };
 
 } // namespace backend_openGL3_glfw
