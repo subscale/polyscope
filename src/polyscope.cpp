@@ -1019,7 +1019,7 @@ void updateStructureExtents() {
 
   // If we got a degenerate bounding box, perturb it slightly
   if (minBbox == maxBbox) {
-    double offsetScale = (state::lengthScale == 0) ? 1e-5 : state::lengthScale*1e-5;
+    double offsetScale = (state::lengthScale == 0) ? 1e-5 : state::lengthScale * 1e-5;
     glm::vec3 offset{offsetScale, offsetScale, offsetScale};
     minBbox = minBbox - offset / 2.f;
     maxBbox = maxBbox + offset / 2.f;
@@ -1037,6 +1037,8 @@ void updateStructureExtents() {
 
   // Center is center of bounding box
   state::center = 0.5f * (minBbox + maxBbox);
+
+  requestRedraw();
 }
 
 

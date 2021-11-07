@@ -175,7 +175,6 @@ glm::mat4 Structure::getTransform() const { return objectTransform.get(); }
 void Structure::setTransform(const glm::mat4& xform) {
   objectTransform = xform;
   updateStructureExtents();
-  requestRedraw();
 }
 
 glm::mat4 Structure::getModelView() { return view::getCameraViewMatrix() * objectTransform.get(); }
